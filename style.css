@@ -7,6 +7,8 @@
 body{
     width:100%;
     height:100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
 }
 
 .navlink-container{
@@ -85,8 +87,8 @@ body{
     background-color: #5AB2FF;
     display: flex;
     justify-content: center;
-    align-items: center; 
-    border-bottom: 1px solid white;  
+    align-items: center;
+    border-bottom: 1px solid white;
     width:100%;
     height:auto;
 }
@@ -111,4 +113,107 @@ body{
     padding:10px;
     background-color: #5AB2FF;
     height:70px;
+}
+header {
+    background-color: #5AB2FF;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-img {
+    width: 60px;
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+.store, .cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.item, .cart-item {
+    width: 30%;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.item img, .cart-item img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.item h2, .cart-item h2 {
+    padding: 10px;
+    margin: 0;
+}
+
+.item p, .cart-item p {
+    padding: 10px;
+    margin: 0;
+    color: #007bff;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #5AB2FF;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .store, .cart {
+        margin: 10px;
+    }
+
+    .item, .cart-item {
+        width: 100%;
+    }
 }
