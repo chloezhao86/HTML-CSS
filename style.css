@@ -8,7 +8,7 @@ body{
     width:100%;
     height:100vh;
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    /*background-color: #f8f9fa;*/
 }
 
 .navlink-container{
@@ -115,12 +115,12 @@ body{
     height:70px;
 }
 header {
-    background-color: #5AB2FF;
-    color: #fff;
+    /*background-color: #5AB2FF;*/
+    /*color: #fff;*/
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
 }
 .logo-img {
     width: 60px;
