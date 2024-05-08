@@ -135,3 +135,17 @@ background-color:#CAF4FF;
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 1150px) {
+ .catalog{
+   display:none;
+ }
+.nav{
+  display: flex;
+  justify-content: center;
+}
+.logo{margin-right: 80px;}
+.main{
+  display: flex;
+  flex-direction: column;
+}
+}
