@@ -45,10 +45,11 @@ body {
 .main {
   display: flex;
   justify-content: space-between;
+  padding: 0px 60px;
 }
 .products {
   display: flex;
-  margin: 50px 150px;
+  margin: 50px 15px;
   flex-direction: column;
   width: 80%;
 }
@@ -148,4 +149,18 @@ background-color:#CAF4FF;
   display: flex;
   flex-direction: column;
 }
+}
+
+.btn{
+  margin-top: 10px;
+  border:0px solid lightblue;
+  padding:10px;
+  background-color: #59B3FF;
+  border-radius:40px;
+  max-width:100px
+}
+
+.btn:hover{
+  font-weight: bold;
+  border: 1px solid lightcyan;
 }
