@@ -1,0 +1,121 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    font-family: Arial, sans-serif;
+    /*background-color: #f8f9fa;*/
+}
+
+.navlink-container{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:20px;
+    background-color: #5AB2FF;
+    width:100%;
+    height:auto;
+
+}
+
+.navbar-links ul{
+    list-style: none;
+}
+
+.navbar-links ul li{
+    display: inline-block;
+    margin:10px;
+}
+
+.navbar-links ul li a{
+    text-decoration: none;
+    font-size: 30px;
+    color: seashell;
+    font-family: "Poppins", sans-serif;
+}
+
+.img-about{
+    width:700px;
+    height:auto;
+}
+
+.about-container{
+    width:1400px;
+    height:auto;
+    margin:10px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: #5AB2FF;
+}
+
+.about-container h1{
+    color:seashell;
+    font-size: 90px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.main-title{
+    width:700px;
+}
+
+.story-container p{
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    width:1400px;
+    margin:auto;
+   
+}
+
+@media only screen and (max-width:800px){
+    .about-container{
+        width:700px;
+        height:auto;
+        margin:10px auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .story-container p{
+        width:700px;
+        padding:5px;
+    }
+}
+
+@media only screen and (max-width:600px){
+    .about-container{
+        max-width:500px;
+        height:auto;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-container h1{
+        font-size: 50px;
+        font-weight: 300;
+        text-align: center;
+        
+    }
+
+    .story-container p{
+        width:500px;
+        font-size: 15px;
+        padding:5px;
+        margin:5px;
+        line-height: 20px;
+        word-spacing: 7px;
+        
+        
+    }
+
+    .about-container img{
+        width:500px;
+        height:auto;
+    }
+}

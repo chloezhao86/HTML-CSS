@@ -1,0 +1,151 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin-top: 20px;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+.nav {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 20px;
+}
+.catalog {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+}
+.input {
+  visibility: visible;
+  border-radius: 20px;
+  background: #f5f5f5;
+  color: inherit;
+  padding: 8px 48px;
+  cursor: text;
+  border: none;
+  text-align: left;
+}
+.img {
+  width: 200px;
+  height: 200px;
+  background-color: azure;
+  margin-right: 20px;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+.products {
+  display: flex;
+  margin: 50px 150px;
+  flex-direction: column;
+  width: 80%;
+}
+.checkout {
+  margin: 50px 150px;
+  width: 40%;
+  line-height: 1.5;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+}
+.details {
+  line-height: 1.5;
+}
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+}
+.delivery {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.product {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.title {
+  display: flex;
+}
+.join {
+  color: grey;
+  text-decoration-line: underline;
+}
+.sign {
+  color: grey;
+  text-decoration-line: underline;
+}
+.fav {
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+.guest {
+  border: 1px solid black;
+  background-color:#CAF4FF;
+  color: black;
+  border-radius: 20px;
+  height: 40px;
+  margin: 20px auto 10px auto;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.member {
+  border: 1px solid black;
+background-color:#CAF4FF;
+  color: black;
+  border-radius: 20px;
+  height: 40px;
+  margin: 10px auto 10px auto;
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.paypal {
+  border: 1px solid black;
+  background-color: #5AB2FF;
+  color: black;
+  border-radius: 20px;
+  height: 40px;
+  margin: 10px auto 10px auto;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 1150px) {
+ .catalog{
+   display:none;
+ }
+.nav{
+  display: flex;
+  justify-content: center;
+}
+.logo{margin-right: 80px;}
+.main{
+  display: flex;
+  flex-direction: column;
+}
+}

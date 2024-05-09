@@ -1,0 +1,264 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    font-family: Arial, sans-serif;
+    /*background-color: #f8f9fa;*/
+}
+
+.navlink-container{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:20px;
+    background-color: #5AB2FF;
+    width:100%;
+    height:auto;
+
+}
+
+.navbar-links ul{
+    list-style: none;
+}
+
+.navbar-links ul li{
+    display: inline-block;
+    margin:10px;
+}
+
+.navbar-links ul li a{
+    text-decoration: none;
+    font-size: 30px;
+    color: seashell;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.banner-image img{
+   max-width:600px;
+   height:auto;
+}
+
+
+.banner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.banner-title{
+    margin-top:150px;
+}
+
+.banner-title h1{
+    padding-bottom:20px;
+    font-size: 50px;
+    font-weight: 900;
+    font-family: "Dancing Script";
+}
+
+.banner-title p{
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.5;
+    word-spacing: 3px;
+    font-family: "Dancing Script";
+}
+
+
+.navbar-links ul li:hover {
+    transform:scale(1.3);
+}
+
+.btn-banner{
+    background-color: #5AB2FF;
+    border-radius: 10px;
+    border:none;
+    padding:10px 20px;
+    color: seashell;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.footer-container{
+    background-color: #5AB2FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid white;
+    width:100%;
+    height:auto;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    gap:.5rem;
+    margin-bottom:10px;
+    padding:30px 80px;
+}
+
+.col a{
+    text-decoration: none;
+    color:seashell;
+}
+
+.copy{
+    text-align: right;
+    padding:10px;
+    background-color: #5AB2FF;
+    height:70px;
+}
+/* header {
+    /*background-color: #5AB2FF;*/
+    /*color: #fff;*/
+    /* padding: 20px; */
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+ */
+.logo-img {
+    width: 60px;
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+.store, .cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.item, .cart-item {
+    width: 30%;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.item img, .cart-item img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.item h2, .cart-item h2 {
+    padding: 10px;
+    margin: 0;
+}
+
+.item p, .cart-item p {
+    padding: 10px;
+    margin: 0;
+    color: #007bff;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    width:100%;
+    height:auto;
+    background-color: #5AB2FF;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .store, .cart {
+        margin: 10px;
+    }
+
+    .item, .cart-item {
+        width: 100%;
+    }
+}
+
+
+/* media queries for width 1100px and smaller */
+
+@media only screen and (max-width:1100px){
+    .img-footer{
+        width:200px;
+        height:auto;
+    }
+  
+}
+
+/* media queries for 760px and smaller */
+
+@media only screen and (max-width:760px){
+    .footer-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img-footer{
+        width:150px;
+        height:auto;
+    }
+
+    .navbar-links ul li a{
+       font-size: 20px;
+    }
+
+    .navlink-container{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .banner-title h1{
+      font-size: 30px;
+      line-height: 1.3;
+      word-spacing: 2px;
+    }
+  
+}
