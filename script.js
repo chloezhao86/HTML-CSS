@@ -1,5 +1,4 @@
 const storeSection = document.querySelector('.store');
- 
 
 const storeItems = [
     {
@@ -45,7 +44,7 @@ const storeEl = storeItems.map(storeItem =>
      <img src=${storeItem.imageUrl} alt='Nike Air Force' />
      <h4>${storeItem.title}</h4>
      <p>$${storeItem.price}</p>
-     <button>Add to Cart</button>
+     <button id='add-to-cart-${storeItem.id}'>Add to Cart</button>
      </div>
     `
 ).join('');
@@ -54,4 +53,22 @@ console.log(storeEl);
 
 
 storeSection.innerHTML = storeEl;
+
+storeItems.forEach((storeItem, index) => {
+    const button = document.querySelector(`#add-to-cart-${storeItem.id}`);
+    button.addEventListener('click', () => {
+        handleAddToCart(storeItem); // passing index or you can pass any other data you want
+    });
+});
+
+function handleAddToCart(storeItem){
+    let previousStoredItems = JSON.parse(localStorage.getItem('addToCartItems')) || {};
+
+    if(previousStoredItems[storeItem.id]) {
+        previousStoredItems[storeItem.id].count += 1;
+    } else {
+        previousStoredItems[storeItem.id] = {...storeItem, count: 1};
+    }
+    localStorage.setItem('addToCartItems', JSON.stringify(previousStoredItems));
+}
 

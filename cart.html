@@ -24,52 +24,7 @@
   </nav>
   <main class="main">
     <section class="products">
-      <div class="product">
-        <div class="title">
-          <img src="./images/DV3950_001.jpeg" alt="" class="img" />
-          <div class="details">
-            <div style="font-weight: bold">Nike Free Metcon 5</div>
-            <p>Women's Workout Shoes</p>
-            <p>Black/White</p>
-            <p>Size 7.5<span style="margin-left: 20px">Quantity 1</span></p>
-            <button class="btn">Remove</button>
-            <br />
-          </div>
-        </div>
-        <p>$180.00</p>
-      </div>
-      <hr />
-      <div class="product">
-        <div class="title">
-          <img src="./images/dunk-low-shoes-KBNt3Z.png" alt="" class="img" />
-          <div class="details">
-            <div style="font-weight: bold">Nike Dunk Low</div>
-            <p>Women's Shoes</p>
-            <p>White/White</p>
-            <p>Size 8 <span style="margin-left: 20px">Quantity 1</span></p>
-            <button class="btn">Remove</button>
-            <br />
-          </div>
-        </div>
-        <p>$160.00</p>
-      </div>
-      <hr />
-      <div class="product">
-        <div class="title">
-          <img src="./images/CW2288_111.jpeg" alt="" class="img" />
-          <div class="details">
-            <div style="font-weight: bold">Nike Air Force 1 '07</div>
-            <p>Men's Shoes</p>
-            <p>White/White</p>
-            <p>Size 10.5 <span style="margin-left: 20px">Quantity 1</span></p>
-
-            <button class="btn">Remove</button>
-            <br />
-          </div>
-        </div>
-        <p>$170.00</p>
-      </div>
-      <hr />
+      <div class="product-display"></div>
       <p class="fav">Favourites</p>
       <p>
         Want to view your favourites? <span class="join">Join us</span> or
@@ -81,18 +36,18 @@
       <p style="font-weight: bold; font-size: larger; margin-bottom: 20px">
         Summary
       </p>
-      <div class="subtotal">
-        <p>Subtotal</p>
-        <p>$510</p>
-      </div>
-      <div class="delivery">
-        <p>Estimated Delivery & Handling</p>
-        <p>$9.95</p>
-      </div>
+<!--      <div class="subtotal">-->
+<!--        <p>Subtotal</p>-->
+<!--        <p>$510</p>-->
+<!--      </div>-->
+<!--      <div class="delivery">-->
+<!--        <p>Estimated Delivery & Handling</p>-->
+<!--        <p>$9.95</p>-->
+<!--      </div>-->
       <hr />
       <div class="total">
         <p>Total</p>
-        <p>$519.95</p>
+        <p class="total-price"></p>
       </div>
       <hr />
       <div class="guest">Guest Checkout</div>
@@ -101,5 +56,69 @@
     </section>
   </main>
 </body>
+<script>
 
+  function getStoredItems(){
+    const storedItems = JSON.parse(localStorage.getItem('addToCartItems'));
+    const storedItemsAsArray = Object.values(storedItems || {});
+    return storedItemsAsArray;
+  }
+  function renderStoredItemsHtml() {
+    const storedItemsAsArray = getStoredItems();
+    const storedItemsHtml = storedItemsAsArray.map((item)=>{
+      return `<div class="product">
+        <div class="title">
+          <img src=${item.imageUrl} alt="" class="img" />
+          <div class="details">
+            <div style="font-weight: bold">${item.title}</div>
+            <p>Women's Workout Shoes</p>
+            <p>Black/White</p>
+            <p>Size 7.5<span style="margin-left: 20px">Quantity ${item.count}</span></p>
+            <button class="btn" id='remove-${item.id}'>Remove</button>
+            <br />
+          </div>
+        </div>
+        <p>$ ${item.price}</p>
+      </div>
+      <hr />`
+    }).join('');
+    const description = document.querySelector('.product-display');
+    description.innerHTML = storedItemsHtml;
+  }
+
+  renderStoredItemsHtml();
+  calculateTotalPrice();
+
+  function calculateTotalPrice(){
+    const storedItems = getStoredItems();
+    const totalPrice = storedItems.reduce((total,currentItem)=>{
+      return total + (currentItem.price * currentItem.count)
+    },0)
+    const totalPriceHtml = document.querySelector('.total-price');
+    totalPriceHtml.innerHTML = totalPrice;
+  }
+  function attachRemoveListener(){
+  const storedItemsAsArray = getStoredItems();
+  storedItemsAsArray.forEach((item)=>{
+    const itemOnDisplay = document.querySelector(`#remove-${item.id}`);
+    itemOnDisplay.addEventListener('click',()=>{
+      let storedItems = JSON.parse(localStorage.getItem('addToCartItems')) || {};
+      if(storedItems[item.id]) {
+        if(storedItems[item.id].count > 1){
+          storedItems[item.id].count -= 1;
+        } else {
+          delete storedItems[item.id];
+        }
+        localStorage.setItem('addToCartItems', JSON.stringify(storedItems));
+
+        // re-render the items
+        renderStoredItemsHtml();
+        attachRemoveListener();
+        calculateTotalPrice();
+      }
+    })
+  })
+}
+  attachRemoveListener();
+</script>
 </html>
