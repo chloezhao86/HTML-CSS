@@ -86,3 +86,23 @@ function handleAddToCart(storeItem){
     localStorage.setItem('addToCartItems', JSON.stringify(previousStoredItems));
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Display the current date and time
+    function displayDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleString();
+        document.getElementById('current-date-time').textContent = dateTimeString;
+    }
+    setInterval(displayDateTime, 1000); // Update every second
+
+    // Fetch and display data from the API
+    fetch('https://onlineprojectsgit.github.io/API/WDEndpoint.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('api-data').textContent = data.message;
+        })
+        .catch(error => {
+            console.error('Error fetching data from API:', error);
+            document.getElementById('api-data').textContent = 'Failed to load data.';
+        });
+})
