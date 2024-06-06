@@ -71,9 +71,15 @@ storeSection.innerHTML = storeEl;
 storeItems.forEach((storeItem, index) => {
     const button = document.querySelector(`#add-to-cart-${storeItem.id}`);
     button.addEventListener('click', () => {
-        handleAddToCart(storeItem); // passing index or you can pass any other data you want
+        const totalCount = handleAddToCart(storeItem);
+        displayCountInCart(totalCount)
     });
 });
+
+function displayCountInCart(totalCount){
+    document.querySelector('#cart-count').textContent = totalCount;
+    document.querySelector('.cart-badge').style.display = 'inline-block'
+}
 
 function handleAddToCart(storeItem){
     let previousStoredItems = JSON.parse(localStorage.getItem('addToCartItems')) || {};
@@ -84,6 +90,10 @@ function handleAddToCart(storeItem){
         previousStoredItems[storeItem.id] = {...storeItem, count: 1};
     }
     localStorage.setItem('addToCartItems', JSON.stringify(previousStoredItems));
+    const totalCount = Object.values(previousStoredItems).reduce((previousValue, currentValue, currentIndex, array)=>{
+        return previousValue+currentValue.count
+    },0);
+    return totalCount;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -99,7 +109,28 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('https://onlineprojectsgit.github.io/API/WDEndpoint.json')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('api-data').textContent = data.message;
+            const {End,Name, Start, cohort, id, instructor, students} = data.info;
+            let result = `
+            <h2>Cohort Information</h2>
+            <p><strong>Course Name:</strong> ${Name}</p>
+            <p><strong>Course ID:</strong> ${id}</p>
+            <p><strong>Cohort Number:</strong> ${cohort}</p>
+            <p><strong>Start Date:</strong> ${Start}</p>
+            <p><strong>End Date:</strong> ${End}</p>
+            <h3>Instructor Information</h3>
+            <p><strong>Name:</strong> ${instructor.name}</p>
+            <p><strong>Position:</strong> ${instructor.position}</p>
+            <p><strong>Number of Cohorts:</strong> ${instructor.cohorts}</p>
+            <h3>Students</h3>
+            <ul>
+        `;
+
+            students.forEach(student => {
+                result += `<li>${student}</li>`;
+            });
+
+            result += `</ul>`;
+            document.getElementById('api-data').innerHTML = result;
         })
         .catch(error => {
             console.error('Error fetching data from API:', error);
